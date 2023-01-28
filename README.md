@@ -1,7 +1,7 @@
 # MachineLearning_Hops_Grasshopper
 Creative geometries / ONELINERS / Machine Learning / Python / Grasshopper
 
-Michael Wickerson creates interesting and new geopmentries and form in grasshopper
+Michael Wickerson creates interesting and new geopmetries and form in grasshopper
 with machine learning ONELINER algorithms in Python 3.0
 in VSC by running the ghhops_server and flask
 and creating custom custom @hops.components
