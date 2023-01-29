@@ -231,6 +231,44 @@ def linear_regression(x, y):
     #return the model
     return model
 
+@hops.component(
+    "/appleStocks_LR",
+    name="Apple Stocks LR",
+    nickname="Apple Stocks LR",
+    description="Apple Stocks LR",
+    inputs=
+    [
+        hs.HopsString("x", "x", "x", hs.HopsParamAccess.LIST),
+        hs.HopsString("y", "y", "y", hs.HopsParamAccess.LIST),
+        hs.HopsString("z", "z", "z", hs.HopsParamAccess.LIST),
+    ],
+    outputs=
+    [
+        hs.HopsString("model", "model", "model")
+    ]
+)
+def appleStocks_LR(x, y, z):
+    #Import the libraries
+    import pandas as pd
+    from sklearn.linear_model import LinearRegression
+    
+    # Data (Apple stock price)
+    # https://finance.yahoo.com/quote/AAPL/history?p=AAPL
+
+    #apple = pd.read_csv('AAPL.csv')
+    apple = np.array([x, y, z])
+    n = len(apple)
+
+    #One-Liner
+    model = LinearRegression().fit(np.arange(n).reshape(n,1), apple)
+    print(model.predict([[3], [4], [5]]))
+    print(type(model))
+
+    #Result
+    return model.predict([[3], [4], [5]]).tolist()
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
